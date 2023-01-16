@@ -398,8 +398,8 @@ Digite: ')
 
                 case '17':
                     print('---------- Entregar Projeto ----------')
-                    id = int('ID do Projeto que deseja entregar: ')
-                    sys.delete_project(id)
+                    id = input('ID do Projeto que deseja entregar: ')
+                    sys.delete_project(int(id))
                     print('O projeto foi Entregue! 💀 🚀')
 
         elif role == 1:
