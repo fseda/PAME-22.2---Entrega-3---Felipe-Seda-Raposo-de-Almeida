@@ -127,16 +127,11 @@ class Sistema:
         if not self.logged_in():
             return NOT_LOGGED_IN
         
-        print(isinstance(self.logged_in_user, Gerente))
-        
         if not isinstance(self.logged_in_user, Gerente):
             return UNAUTHORIZED
 
         list_of_projects = []
-        print(self.projects)
         for project in self.projects:
-            print(self.logged_in_user.username)
-            print(project.manager)
             if project.manager == self.logged_in_user.username and project.advance_project_request['Requested']:
                 list_of_projects.append(project)
         
@@ -145,11 +140,9 @@ class Sistema:
     # G
     def decide_advance_project_request(self, project_id, decision):
         if not self.logged_in():
-            print('asdf')
             return NOT_LOGGED_IN
         
         if not isinstance(self.logged_in_user, Gerente):
-            print('aaaaaaaaaaaaa')
             return UNAUTHORIZED
         
         for project in self.projects:

@@ -388,12 +388,19 @@ Digite: ')
                         print(f'{project.id} | {project.name} | {type_of_project} | {project.remaining_steps} | {project.manager} | {len(project.consultants)}')
                     print('----------------------------\n')
                     id = int(input('ID do Projeto que deseja transferir: '))
-                    new_manager = int(input('Transferir para (ID): '))
+                    new_manager = input('Transferir para (Usuário): ')
                     
                     project = sys.get_project_by_id(id)
                     project.manager = new_manager
+                    
+                    print('Transferido com sucesso!')
+                    print('----------------------------\n')
 
-
+                case '17':
+                    print('---------- Entregar Projeto ----------')
+                    id = int('ID do Projeto que deseja entregar: ')
+                    sys.delete_project(id)
+                    print('O projeto foi Entregue! 💀 🚀')
 
         elif role == 1:
             match op:
