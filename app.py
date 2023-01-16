@@ -401,6 +401,7 @@ Digite: ')
                     id = input('ID do Projeto que deseja entregar: ')
                     sys.delete_project(int(id))
                     print('O projeto foi Entregue! 💀 🚀')
+                    print('----------------------------\n')
 
         elif role == 1:
             match op:
