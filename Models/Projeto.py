@@ -29,6 +29,10 @@ class Projeto:
     def manager(self):
         return self.__manager
 
+    @manager.setter
+    def manager(self, manager):
+        self.__manager = manager
+
     @property
     def consultants(self):
         return self.__consultants

@@ -363,6 +363,38 @@ Digite: ')
 
                     print('----------------------------\n')
 
+                case '15':
+                    #TODO
+                    pass
+
+                case '16':
+                    print('--------- Transferir Projeto ----------')
+
+                    projects = sys.get_projects_by_username(sys.logged_in_user.username)
+
+                    if len(projects) == 0:
+                        print('Não há projetos cadastrados.')
+                        print('----------------------------\n')
+                        return
+
+                    print('ID | Nome do Projeto | Tipo de Projeto | Etapas Restantes | Gerente | # de Consultores\n')
+                    for project in projects:
+                        if project.type_of_project == DES:
+                            type_of_project = 'Desenvolvimento'
+                        elif project.type_of_project == CON:
+                            type_of_project = 'Concepção'
+                        elif project.type_of_project == IDV:
+                            type_of_project = 'Identidade Visual'
+                        print(f'{project.id} | {project.name} | {type_of_project} | {project.remaining_steps} | {project.manager} | {len(project.consultants)}')
+                    print('----------------------------\n')
+                    id = int(input('ID do Projeto que deseja transferir: '))
+                    new_manager = int(input('Transferir para (ID): '))
+                    
+                    project = sys.get_project_by_id(id)
+                    project.manager = new_manager
+
+
+
         elif role == 1:
             match op:
                 case '14':
@@ -405,9 +437,24 @@ Digite: ')
                     print('ID Invalida.')
                     print('----------------------------\n')
                     return
+                
+                case '15': # Sair de um Projeto
+                    print('--------- Sair de um Projeto ---------')
+
+                    projects = sys.get_projects_by_username(sys.logged_in_user.username)
+                    print('ID | Nome do Projeto | Tipo de Projeto | Etapas Restantes | Gerente | # de Consultores\n')
+                    for project in projects:
+                        if project.type_of_project == DES:
+                            type_of_project = 'Desenvolvimento'
+                        elif project.type_of_project == CON:
+                            type_of_project = 'Concepção'
+                        elif project.type_of_project == IDV:
+                            type_of_project = 'Identidade Visual'
+                        print(f'{project.id} | {project.name} | {type_of_project} | {project.remaining_steps} | {project.manager} | {len(project.consultants)}')
+                    print('----------------------------\n')
                     
-
-
+                    id = int(input('Escolha o Projeto que deseja sair (ID): '))
+                    
     else:
         match op:
             case _:
