@@ -24,13 +24,10 @@ class Sistema:
         pass
 
     def username_taken(self, username):
-        for manager in self.managers:
-            if manager.username == username:
+        for user in self.users:
+            if user.username == username:
                 return True
         
-        for consultant in self.consultants:
-            if consultant.username == username:
-                return True
         
         return False
 
